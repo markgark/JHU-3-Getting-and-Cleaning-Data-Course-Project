@@ -16,3 +16,14 @@
 - 'test/X_test.txt': Test set.
 - 'test/y_test.txt': Test labels.
 
+# Variables
+
+- x_train         Memory Table for training set data
+- y_train         Memory Table for training labels data
+- subject_train   Memory Table for training subject data
+- x_test          Memory Table for testing set data
+- y_test          Memory Table for testing labels data
+- subject_test    Memory Table for testing subject data
+
+
+
