@@ -11,4 +11,4 @@ run_analysis.R contains all the code to perform the analyses described in the 5 
 
 CodeBook.md shows and describe the variables, data, and transformations that was performed to clean up the data.
 
-averages_data.txt contains the final results
+averages.txt contains the final results
