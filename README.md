@@ -9,6 +9,6 @@ https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Datas
 # Files
 run_analysis.R contains all the code to perform the analyses described in the 5 steps.
 
-CodeBook.md shows and describe the variables, data, and transformations that was performed to clean up the data.
+CodeBook.md shows and describes the variables, data, and transformations that was performed to get the final dataset required in step 5.
 
 averages.txt contains the final results
