@@ -24,6 +24,14 @@
 - x_test          Memory Table for testing set data
 - y_test          Memory Table for testing labels data
 - subject_test    Memory Table for testing subject data
+- features        Memory Table of correct names for x_data
+- activities      Memory Table for activities labels data
+- x_data          Merges x_train & x_test datasets
+- y_data          Merges y_train & y_test datasets
+- subject_data    Merges subject_train & subject_test datasets
+- all_data        Merges x_data, y_data and subject_data
+- averages        Contains the averages required whic are stores in averages.txt file
 
+# Adds
 
-
+ddply() from the plyr package is used to apply colMeans() and simplify the code.
