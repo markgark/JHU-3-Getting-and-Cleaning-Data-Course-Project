@@ -1,0 +1,48 @@
+# run_analysis.R
+# Author: Marco García
+
+library(plyr)
+
+# STEP 1 Merges the training and the test sets to create one data set.
+# Training sets
+
+x_train <- read.table("train/X_train.txt")
+y_train <- read.table("train/y_train.txt")
+subject_train <- read.table("train/subject_train.txt")
+
+# Testing sets
+
+x_test <- read.table("test/X_test.txt")
+y_test <- read.table("test/y_test.txt")
+subject_test <- read.table("test/subject_test.txt")
+
+# Merging datasets
+
+x_data <- rbind(x_train, x_test)
+y_data <- rbind(y_train, y_test)
+subject_data <- rbind(subject_train, subject_test)
+
+# STEP 2 Extracts only the measurements on the mean and standard deviation for each measurement.
+
+features <- read.table("features.txt")
+measurements <- grep("-(mean|std)\\(\\)", features[, 2])
+x_data <- x_data[, measurements]
+names(x_data) <- features[measurements, 2]
+
+# STEP 3 Uses descriptive activity names to name the activities in the data set
+
+activities <- read.table("activity_labels.txt")
+y_data[, 1] <- activities[y_data[, 1], 2]
+names(y_data) <- "activity"
+
+# STEP 4 Appropriately labels the data set with descriptive variable names.
+
+names(subject_data) <- "subject"
+all_data <- cbind(x_data, y_data, subject_data)
+
+# STEP 5 From the data set in step 4, creates a second, 
+# independent tidy data set with the average 
+# of each variable for each activity and each subject.
+
+averages <- ddply(all_data, .(subject, activity), function(x) colMeans(x[, 1:66]))
+write.table(averages, "averages.txt", row.name=FALSE)
